@@ -8,12 +8,19 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+var ejs = require('ejs');
+
 var app = express();
 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// 设置模板引擎jade
+//app.set('view engine', 'jade');
+// 设置模板引擎html
+app.engine('.html', ejs.__express);
+app.set('view engine', 'html');
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -38,7 +45,7 @@ app.use('/users', users);
 
 app.route('/book')
     .get(function(req, res) {
-      res.send('Get a random book');
+      res.json('Get a random book');
     })
     .post(function(req, res) {
       res.send('Add a book');
