@@ -22,6 +22,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// 没有挂载路径的中间件，应用的每个请求都会执行该中间件
+app.use(function (req, res, next) {
+  //console.log('11111111111111111Time:', Date.now());
+  next();
+});
+
 //托管静态文件
 app.use(express.static(path.join(__dirname, 'public')));
 //app.use('/static', express.static('public'));
@@ -30,10 +36,32 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
+
 // 下载
 app.get('/download', function (req, res) {
   res.download('/七月份路线.gpx');
 });
+
+
+
+// 一个中间件栈，处理指向 /user/:id 的 GET 请求
+app.get('/user/:id/:qwe', function (req, res, next) {
+  // 如果 user id 为 0, 跳到下一个路由
+  if (req.params.id == 0) next('route');
+  // 否则将控制权交给栈中下一个中间件
+  else next(); //
+}, function (req, res, next) {
+  // 渲染常规页面
+  res.json([
+    req.params.id, req.params.qwe
+  ]);
+});
+
+// 处理 /user/:id， 渲染一个特殊页面
+app.get('/user/:id', function (req, res, next) {
+  res.json('special');
+});
+
 
 
 // catch 404 and forward to error handler
