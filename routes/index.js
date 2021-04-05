@@ -27,7 +27,9 @@ router.get('/index', function (req, res, next) {
     var query2 = params.query;
     // 打印get请求中的接口参数
     console.log(query2);
-    res.end(JSON.stringify(data));
+    //res.end(JSON.stringify(data));
+	res.json(data);
+
 });
 
 
