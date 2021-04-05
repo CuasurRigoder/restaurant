@@ -36,12 +36,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
+app.route('/book')
+    .get(function(req, res) {
+      res.send('Get a random book');
+    })
+    .post(function(req, res) {
+      res.send('Add a book');
+    })
+    .put(function(req, res) {
+      res.send('Update the book');
+    }
+);
+
 
 // 下载
 app.get('/download', function (req, res) {
   res.download('/七月份路线.gpx');
 });
-
 
 
 // 一个中间件栈，处理指向 /user/:id 的 GET 请求

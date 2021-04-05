@@ -6,7 +6,7 @@ var urllib = require('url');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'zhang' });
 });
 
 // get请求
