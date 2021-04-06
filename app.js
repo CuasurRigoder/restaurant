@@ -13,7 +13,7 @@ var ejs = require('ejs');
 var app = express();
 
 
-// view engine setup
+// 定义view的文件目录
 app.set('views', path.join(__dirname, 'views'));
 // 设置模板引擎jade
 //app.set('view engine', 'jade');
@@ -36,8 +36,9 @@ app.use(function (req, res, next) {
 });
 
 //托管静态文件
-app.use(express.static(path.join(__dirname, 'public')));
-//app.use('/static', express.static('public'));
+//app.use(express.static(path.join(__dirname, 'public')));
+// 变更托管静态文件目录显示
+app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // 监听路由
 app.use('/', index);

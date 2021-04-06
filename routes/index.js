@@ -6,7 +6,9 @@ var urllib = require('url');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'zhang' });
+  	res.render('index.html', {
+		title: 'zhang的主页'
+  	});
 });
 
 // get请求
