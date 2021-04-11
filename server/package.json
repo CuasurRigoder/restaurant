@@ -3,11 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-<<<<<<< HEAD:server/package.json
     "server": "node ./bin/www"
-=======
-    "server": "node ./server/bin/www"
->>>>>>> d8fa68bf959427c786bea9998aecf569379c1eca:package.json
   },
   "dependencies": {
     "body-parser": "~1.17.1",
