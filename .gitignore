@@ -2,3 +2,16 @@ node_modules/
 npm-debug.log
 .idea/
 .git/
+<<<<<<< HEAD
+=======
+
+.DS_Store
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+test/unit/coverage
+test/e2e/reports
+selenium-debug.log
+>>>>>>> d8fa68bf959427c786bea9998aecf569379c1eca
