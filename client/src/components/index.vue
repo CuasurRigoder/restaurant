@@ -1,12 +1,12 @@
 <template>
-  <div class="hello">
+  <div class="index">
     <h1>{{ msg }}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'hello',
+  name: 'index',
   data () {
     return {
       msg: 'index.vue'

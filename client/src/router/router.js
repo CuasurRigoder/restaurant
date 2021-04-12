@@ -8,14 +8,14 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/',
+      name: 'index',
+      component: Index
+    },
+    {
       path: '/hello',
       name: 'hello',
       component: Hello
-    },
-    {
-      path: '/index',
-      name: 'index',
-      component: Index
     }
   ]
 })
