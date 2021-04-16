@@ -2,7 +2,9 @@
   <div class="index">
     <h1>{{ msg }}</h1>
     <!-- 映射路由的 id -->
-    {{ $route.params.id }}
+    <h3>{{ $route.params.id }}</h3>
+    <h3>{{ $route.query.id }}</h3>
+
   </div>
 </template>
 

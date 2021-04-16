@@ -8,7 +8,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
-      path: '/index/:id/qwe',
+      path: '/index/:id',
       name: 'index',
       component: Index
     },
