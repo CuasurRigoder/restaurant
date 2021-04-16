@@ -4,7 +4,7 @@
     <!-- 映射路由的 id -->
     <h3>{{ $route.params.id }}</h3>
     <!-- 映射参数 -->
-    <h3>{{ $route.query["zhang"] }}</h3>
+    <h3>{{ $route.query }}</h3>
 
   </div>
 </template>
