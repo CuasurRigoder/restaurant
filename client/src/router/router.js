@@ -5,6 +5,12 @@ import Index from '@/components/index.vue'
 
 Vue.use(Router)
 
+Index.watch = {
+  '$route' (to, from) {
+    // 监听路由变化，进行操作
+  }
+}
+
 export default new Router({
   routes: [
     {
