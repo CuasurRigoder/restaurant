@@ -6,6 +6,10 @@
     <!-- 映射参数 -->
     <h3>{{ $route.query }}</h3>
 
+    <!-- 新层模板 -->
+    <router-view class="view one"></router-view>
+    <router-view class="view two" name="a"></router-view>
+
   </div>
 </template>
 

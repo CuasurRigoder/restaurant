@@ -7,16 +7,27 @@ Vue.use(Router)
 
 Index.watch = {
   '$route' (to, from) {
-    // 监听路由变化，进行操作
   }
 }
 
 export default new Router({
   routes: [
     {
+      // 要注意，以 / 开头的嵌套路径会被当作根路径。 这让你充分的使用嵌套组件而无须设置嵌套的路径。
       path: '/index/:id',
       name: 'index',
-      component: Index
+      component: Index,
+      children: [
+        {
+          // 当 /index/:id/profile 匹配成功，
+          // UserProfile 会被渲染在 User 的 <router-view> 中
+          path: 'hello',
+          components: {
+            default: Hello,
+            a: Index
+          }
+        }
+      ]
     },
     {
       path: '/hello',
