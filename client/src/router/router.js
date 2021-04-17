@@ -5,6 +5,11 @@ import Index from '@/components/index.vue'
 
 Vue.use(Router)
 
+// 错误模板（配合）
+const error = {
+  template: '<div>404</div>'
+}
+
 // 复用组件时，想对路由参数的变化作出响应的话，你可以简单地 watch（监测变化） $route 对象
 Index.watch = {
   '$route' (to, from) {
@@ -33,7 +38,9 @@ Index.beforeRouteLeave = (to, from, next) => {
 }
 
 export default new Router({
+  mode: 'history',
   routes: [
+    { path: '*', component: error },
     {
       // 要注意，以 / 开头的嵌套路径会被当作根路径。 这让你充分的使用嵌套组件而无须设置嵌套的路径。
       path: '/index/:id',
@@ -70,11 +77,22 @@ export default new Router({
       component: Hello
     }
   ],
-  // 全局路由钩子（之后执行）
-  beforeEach: (to, from, next) => {
-
+  // history 模式下才有效
+  scrollBehavior (to, from, savedPosition) {
+    // return 期望滚动到哪个的位置
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { x: 0, y: 100 }
+      // 如果你要模拟『滚动到锚点』的行为：
+      // selector: to.hash
+    }
   },
-  // 全局钩子（之后执行）
+  // 全局路由钩子（之前执行）疑似未生效
+  beforeEach: (to, from, next) => {
+    next(false)
+  },
+  // 全局钩子（之后执行）疑似未生效
   afterEach: () => {
   }
 })
