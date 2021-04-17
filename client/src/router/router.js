@@ -5,6 +5,9 @@ import Index from '@/components/index.vue'
 
 Vue.use(Router)
 
+// 懒加载的实现
+const FooIndex = r => require.ensure([], () => r(Index), 'group-foo')
+
 // 错误模板（配合）
 const error = {
   template: '<div>404</div>'
@@ -54,7 +57,7 @@ export default new Router({
       // redirect: to => {
       // }
       name: 'index',
-      component: Index,
+      component: FooIndex,
       // 路由独享钩子
       beforeEnter: (to, from, next) => {
         next()
@@ -81,6 +84,7 @@ export default new Router({
   scrollBehavior (to, from, savedPosition) {
     // return 期望滚动到哪个的位置
     if (savedPosition) {
+      // 返回按钮的场合，定位到离开的位置
       return savedPosition
     } else {
       return { x: 0, y: 100 }
