@@ -15,6 +15,7 @@ Index.watch = {
 // 不！能！获取组件实例 `this`
 // 因为当钩子执行前，组件实例还没被创建
 Index.beforeRouteEnter = (to, from, next) => {
+  next()
 }
 
 // 在当前路由改变，但是该组件被复用时调用
@@ -22,11 +23,13 @@ Index.beforeRouteEnter = (to, from, next) => {
 // 由于会渲染同样的 Foo 组件，因此组件实例会被复用。而这个钩子就会在这个情况下被调用。
 // 可以访问组件实例 `this`
 Index.beforeRouteUpdate = (to, from, next) => {
+  next()
 }
 
 // 导航离开该组件的对应路由时调用
 // 可以访问组件实例 `this`
 Index.beforeRouteLeave = (to, from, next) => {
+  next()
 }
 
 export default new Router({

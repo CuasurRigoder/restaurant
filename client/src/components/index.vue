@@ -1,16 +1,18 @@
 <template>
-  <div class="index">
-    <h1>{{ msg }}</h1>
-    <!-- 映射路由的 id -->
-    <h3>{{ $route.params.id }}</h3>
-    <!-- 映射参数 -->
-    <h3>{{ $route.query }}</h3>
+  <transition name="slide-right">
+    <div class="index">
+      <h1>{{ msg }}</h1>
+      <!-- 映射路由的 id -->
+      <h3>{{ $route.params.id }}</h3>
+      <!-- 映射参数 -->
+      <h3>{{ $route.query }}</h3>
 
-    <!-- 新层模板 -->
-    <router-view class="view one"></router-view>
-    <router-view class="view two" name="a"></router-view>
+      <!-- 新层模板 -->
+      <router-view class="view one"></router-view>
+      <router-view class="view two" name="a"></router-view>
 
-  </div>
+    </div>
+  </transition>
 </template>
 
 <script>
