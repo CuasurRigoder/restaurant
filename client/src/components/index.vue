@@ -36,7 +36,7 @@
     </div>
   </transition>
 </template>
-
+<!-- -->
 <script>
 export default {
   data () {
@@ -79,7 +79,7 @@ export default {
   methods: {
     fetchData () {
       setTimeout(() => {
-        this.msg = 'index.vue fetchData()已经被执行过'
+        this.msg = 'fetchData()已经被执行过'
       }, 1000)
     }
   }

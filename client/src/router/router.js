@@ -10,18 +10,12 @@ const error = {
   template: '<div>404</div>'
 }
 
-// 复用组件时，想对路由参数的变化作出响应的话，你可以简单地 watch（监测变化） $route 对象
-Index.watch = {
-  '$route' (to, from) {
-  }
-}
-
 // 在渲染该组件的对应路由被 confirm 前调用
 // 不！能！获取组件实例 `this`
 // 因为当钩子执行前，组件实例还没被创建
-Index.beforeRouteEnter = (to, from, next) => {
-  next(true)
-}
+// Index.beforeRouteEnter = (to, from, next) => {
+//   next(true)
+// }
 
 // 懒加载的实现
 const FooIndex = r => require.ensure([], () => r(Index), 'group-foo')
@@ -29,6 +23,7 @@ const FooIndex = r => require.ensure([], () => r(Index), 'group-foo')
 export default new Router({
   mode: 'history',
   routes: [
+    // 错误路径的场合返回404
     { path: '*', component: error },
     {
       // 要注意，以 / 开头的嵌套路径会被当作根路径。 这让你充分的使用嵌套组件而无须设置嵌套的路径。
@@ -46,7 +41,7 @@ export default new Router({
       component: FooIndex,
       // 路由独享钩子
       beforeEnter: (to, from, next) => {
-        next()
+        next(true)
       },
       children: [
         {
