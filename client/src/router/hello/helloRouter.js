@@ -1,4 +1,4 @@
-import Hello from '@/components/view/Hello.vue'
+import Hello from '@/components/view/hello/Hello.vue'
 
 export default {
   path: '/hello',

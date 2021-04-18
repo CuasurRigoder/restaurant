@@ -23,7 +23,7 @@
   </transition>
 </template>
 <!-- 处理器文件  -->
-<script type="text/javascript" src="./../controller/index.js"></script>
+<script type="text/javascript" src="./../../controller/index/index.js"></script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- scoped 组建私有样式 -->
