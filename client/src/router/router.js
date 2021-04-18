@@ -5,9 +5,6 @@ import Index from '@/components/index.vue'
 
 Vue.use(Router)
 
-// 懒加载的实现
-const FooIndex = r => require.ensure([], () => r(Index), 'group-foo')
-
 // 错误模板（配合）
 const error = {
   template: '<div>404</div>'
@@ -39,6 +36,9 @@ Index.beforeRouteUpdate = (to, from, next) => {
 Index.beforeRouteLeave = (to, from, next) => {
   next()
 }
+
+// 懒加载的实现
+const FooIndex = r => require.ensure([], () => r(Index), 'group-foo')
 
 export default new Router({
   mode: 'history',
@@ -87,14 +87,14 @@ export default new Router({
       // 返回按钮的场合，定位到离开的位置
       return savedPosition
     } else {
-      return { x: 0, y: 100 }
+      return { x: 0, y: 0 }
       // 如果你要模拟『滚动到锚点』的行为：
       // selector: to.hash
     }
   },
   // 全局路由钩子（之前执行）疑似未生效
   beforeEach: (to, from, next) => {
-    next(false)
+    // next(false)
   },
   // 全局钩子（之后执行）疑似未生效
   afterEach: () => {
