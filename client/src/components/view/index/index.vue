@@ -6,14 +6,6 @@
       <h3>{{ $route.params.id }}</h3>
       <!-- 映射参数 -->
       <h3>{{ $route.query }}</h3>
-      <h3>{{ $route.query }}</h3>
-      <h3>{{ $route.query }}</h3>
-      <h3>{{ $route.query }}</h3>
-      <h3>{{ $route.query }}</h3>
-      <h3>{{ $route.query }}</h3>
-      <h3>{{ $route.query }}</h3>
-      <h3>{{ $route.query }}</h3>
-      <h3>{{ $route.query }}</h3>
 
       <!-- 新层模板 -->
       <router-view class="view one"></router-view>
