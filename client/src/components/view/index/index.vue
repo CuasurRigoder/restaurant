@@ -1,6 +1,6 @@
 <template>
-  <transition name="fade">
-    <div class="index">
+  <div class="index">
+    <!-- <transition name="fade"> -->
       <h1>{{ msg }}</h1>
       <!-- 映射路由的 id -->
       <h3>{{ $route.params.id }}</h3>
@@ -10,9 +10,8 @@
       <!-- 新层模板 -->
       <router-view class="view one"></router-view>
       <router-view class="view two" name="a"></router-view>
-
-    </div>
-  </transition>
+    <!-- </transition> -->
+  </div>
 </template>
 <!-- 处理器文件  -->
 <script type="text/javascript" src="./../../controller/index/index.js"></script>
